@@ -14,6 +14,7 @@
 	//총 게시물 수
 	//페이지당 게시물
 	//페이지당 시작번호, 끝번호
+	//git test! 보고있나?
 	
 	String pageNumber=request.getParameter("pageNumber");
 	if(pageNumber==null) pageNumber="1";
