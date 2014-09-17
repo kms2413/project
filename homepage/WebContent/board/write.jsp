@@ -34,7 +34,7 @@
 			<input type = "hidden" name = "sequenceLevel" value = "<%=sequenceLevel %>"/>
 			<div>글쓰기</div>
 			<div style="text-align: right; color: red;">
-				<a href="">글목록</a>
+				<a href="list.jsp">글목록</a>
 			</div>
 			<div class="border_div">
 				<div class="border_box_left" style="border-top-width: 1px;">작성자</div>
@@ -73,8 +73,8 @@
 
 			<div class="border_box">
 				<span><input type="submit" value="글쓰기"></span> <span><input
-					type="reset" value="다시작성"></span> <span><input
-					type="button" value="목록보기"></span>
+					type="reset" value="다시작성"></span> 
+					<span><input type="button" value="목록보기" onclick = "location.href='list.jsp'"/></span>
 			</div>
 		</form>
 	</div>

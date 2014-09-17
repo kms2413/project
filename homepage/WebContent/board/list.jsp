@@ -4,6 +4,7 @@
     <%@ page import = "java.util.ArrayList" %>
     <%@ page import = "java.util.Date" %>
     <%@ page import = "java.text.SimpleDateFormat" %>
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	int boardSize=10;
@@ -17,7 +18,7 @@
 		pageNumber = "1";
 	}
 	int currentPage = Integer.parseInt(pageNumber);
-	
+	//dfdfsdfasdfasdfs
 	//start num and ending numb
 	int startRow= (currentPage-1)*boardSize+1;
 	int endRow=currentPage*boardSize;
@@ -54,7 +55,7 @@
 			</tr>
 		</table>
 	<% }else{%>
-				<table border = "1" width = "530" cellpadding ="2" cellspacing = "0" align = "center">
+		<table border = "1" width = "530" cellpadding ="2" cellspacing = "0" align = "center">
 			<tr>
 				<td align ="center" width = "30">번호</td>
 				<td align ="center" width = "250">제목</td>
@@ -69,14 +70,35 @@
 			%>
 				<tr>
 					<td align ="center" width = "30"><%=board.getBoardNumber() %></td>
-					<td align ="center" width = "250"><%=board.getSubject() %></td>
+					<td align ="center" width = "250">
+						<%if(board.getSequenceLevel()>0){
+							for(int j =0; j<board.getSequenceLevel();j++){
+								out.print("&nbsp;&nbsp");	
+							}
+							out.print("[답글]");
+							
+						}%>
+							
+						<a href =""><%=board.getSubject() %></a></td>
 					<td align ="center" width = "70"><%=board.getWriter() %></td>
-					<td align ="center" width = "80"><%=sdf.format(board.getWriteDate()) %></td>
+					<td align ="center" width = "80"><%=sdf.format(board.getWriteDate())%></td>
 					<td align ="center" width = "50"><%=board.getReadCount() %></td>
 					<td align ="center" width = "50"><%=board.getIp() %></td>
 				</tr>
 			<% }%>
 		</table>
 	<%} %>
+	<br/>
+	<center>
+		<%
+	 	if(count >0){
+			//총페이지 = 레코드수/한페이지당 게시물 사이즈
+			
+		}
+		
+		%>
+	</center>
+	
+	
 </body>
 </html>
