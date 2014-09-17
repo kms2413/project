@@ -1,0 +1,100 @@
+function registerForm(form){
+
+	/*
+	if(form.id.value==""){
+		alert("Please type id");
+		form.id.focus();
+		return false;
+	}
+	
+	if(form.password.value==""){
+		alert("Please type pw");
+		form.password.focus();
+		return false;
+	}
+	
+	if(form.password.value.length < 6){
+		alert("Password has to be longer than 6 char");
+		form.password.focus();
+		return false;
+	}
+	
+	if(form.password.value!=form.pwConfirm.value){
+		alert("Check your password");
+		form.pwConfirm.focus();
+		return false;
+	}
+	
+	if(form.name.value==""){
+		alert("Please type id");
+		form.name.focus();
+		return false;
+	}
+	
+	if(form.jumin1.value.length !=6){
+		alert("Please type Jumin1 correctly");
+		form.jumin1.focus();
+		return false;
+	}
+	
+	if(form.jumin2.value.length !=7){
+		alert("Please type Jumin2 correctly");
+		form.jumin2.focus();
+		return false;
+	}
+	
+	if(form.email.value == ""){
+		alert("Please type Email correctly");
+		form.email.focus();
+		return false;
+	}
+	
+	if(form.address.value == ""){
+		alert("Please type Address correctly");
+		form.address.focus();
+		return false;
+	}
+	
+	if(form.job.value == ""){
+		alert("Please type Job correctly");
+		form.job.focus();
+		return false;
+	}
+	
+	if(form.zipcode.value == ""){
+		alert("Please type zipcode correctly");
+		form.zipcode.focus();
+		return false;
+	}
+	*/
+	
+	var test = false;
+	for(var i =0; i < form.mailing.length;i++){
+		if(form.mailing[i].checked==true){
+			test = true;
+		}
+	}
+	if(test == false){
+		alert("Subscribe??");
+		form.mailing.focus();
+		return false;
+	}
+	
+	var check = false;
+	var str ="";
+	for(var i=0; i <form.interestValue.length;i++){
+		if(form.interestValue[i].checked==true){
+			str +=form.interestValue[i].value+",";
+			check==true;
+		}
+		
+	}
+	
+	if(check ==false){
+		alert("Please Check at least one");
+		form.interestValue[0].focus();
+		return false;
+	}
+	
+	form.interest.value=str;
+}

@@ -1,0 +1,41 @@
+package boardModel;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Date;
+
+import dataBase.JdbcUtil;
+
+public class BoardDao {
+	private static BoardDao instance = new BoardDao();
+	public static BoardDao getInstance(){
+		return instance;
+	}
+	
+	public int insert(BoardDto board){
+		board.setWriteDate(new Date());
+		board.setReadCount(0);
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int value = 0;
+
+		wiretNumber(conn, board);
+		
+		try{
+			
+		}catch(Exception e){
+			System.out.println("Insert Error");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+			
+		}
+		return value;
+	}
+	
+	public void writeNumber(Connection conn, BoardDto board){
+		
+	}
+}

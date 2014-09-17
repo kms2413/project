@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;grade&apos;&#x0A;- Original project: &apos;grade&apos;&#x0A;- Original elements:&#x0A;     dataBase.ConnectionProvider.java&#x0A;     dataBase.DBCPInit.java&#x0A;     dataBase.DBCPInit&#x0A;     dataBase.JdbcUtil.java" description="Delete elements" element1="/src&lt;dataBase{DBCPInit.java" element2="/src&lt;dataBase{ConnectionProvider.java" element3="/src&lt;dataBase{JdbcUtil.java" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1410487151686" subPackages="false" version="1.0"/>
+</session>

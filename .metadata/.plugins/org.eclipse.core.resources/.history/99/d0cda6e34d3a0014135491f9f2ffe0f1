@@ -1,0 +1,31 @@
+package memberModel;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Date;
+
+public class MemberDao {
+	private static MemberDao instance = new MemberDao();
+	public static MemberDao getInstance(){
+		return instance;	
+	}
+	
+	public int insert(MemberDto member){
+		member.setMemberLevel("BA");
+		member.setRegisterDate(new Date());
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int value =0;
+
+		try{
+			String sql = "insert into member values(member_num_seq.nextval, ?,?,?,?,?,?,?,?,?,?,?,?,?";
+		}catch(Exception e){
+			
+		}finally{
+			
+		}
+		
+		return value;
+	}
+}

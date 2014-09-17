@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+
+function writeCheck(form){
+	alert("ok");
+}

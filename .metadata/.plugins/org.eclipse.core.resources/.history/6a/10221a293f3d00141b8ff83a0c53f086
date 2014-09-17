@@ -1,0 +1,34 @@
+package guestModel;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Date;
+
+import dataBase.JdbcUtil;
+
+public class GuestDao {
+	private static GuestDao instance = new GuestDao();
+	public static GuestDao getInstance(){
+		return instance;
+	}
+	
+	public int insert(GuestDto guest){
+		guest.setWriteDate(new Date());
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		int value = 0;
+		
+		try{
+			
+		}catch(Exception e){
+			System.out.println("GuestDao Insert Error");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+		
+	}
+}

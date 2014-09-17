@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+function writeForm(form){
+	if(form.name.value==""){
+		alert("NAME!!!!!!!!!");
+		form.name.focus();
+		return false;
+	}
+}

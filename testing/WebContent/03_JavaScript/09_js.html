@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		var abc = "HiHIHi";
+		var xyz = new String("HeloHeloHelo");
+		document.write(abc = "<br/>" + xyz);
+		
+		var str = "abcdefghij";
+		document.write(str.substring(6) +"<br/>");
+		document.write(str.substring(2,6) + "<br/>");
+		
+		var email="hong@naver.com";
+		document.write("IndexOf "+email.indexOf("@")+"<br/>");
+		document.write("charAt " + str.charAt(2) +"<br/>");
+		document.write("lower case " + email.toLowerCase()+"<br/>");
+		document.write("Upper Case " + email.toUpperCase()+"<br/>");
+		
+		var splitStr="abc, def, 123";
+		var result = splitStr.split(",");
+		for(var i= 0; i<result.length; i++){
+			document.write(result[i]+"<br/>");
+		}
+	</script>
+
+</head>
+<body>
+	
+
+</body>
+</html>

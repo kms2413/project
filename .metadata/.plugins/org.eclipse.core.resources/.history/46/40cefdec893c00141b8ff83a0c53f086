@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "memberModel.*" %>
+<%@ page import = "java.util.ArrayList" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	request.setCharacterEncoding("euc-kr");
+	String checkDong = request.getParameter("dong");
+//	out.print(checkDong);
+	ArrayList<ZipcodeDto> zipcodeList=null;
+	
+	if(checkDong!=null){
+		zipcodeList = MemberDao.getInstance().zipcodeReader(checkDong);
+		out.print(zipcodeList.size());
+	}
+
+	
+%>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<form action = "zipcode.jsp" method = "post">
+		<table align= "center">
+			<tr>
+				<td>
+					<input type = "text" name = "dong"/>
+					<input type = "submit" value = "검색"/>					
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+	<%if(zipcodeList==null){ %>
+		<table align = "center">
+			<tr>
+				<td>
+				검색된 결과가 없습니다.
+				</td>
+			</tr>
+			
+		</table>
+	<%} else{ %>
+	<% } %>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

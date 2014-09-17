@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Auction 회원가입</title>
+<!-- <link rel= "stylesheet" type = "text/css" href = "auction_myStyle.css"/> -->
+	<style type = "text/css">
+		#body{
+			width:1000px; 
+			height:1276px;
+			margin-right:449.333px;
+			margin-left:449.333px;
+			border:dotted 1px black;
+		}
+		
+		.tit-join{
+			width:980px; height:73px;
+			padding:20px 0px 0px 20px;
+			background: url('https://pics.auction.co.kr/join/bg_h2_tit.gif') repeat-x;
+		}
+		
+		.centerPad{
+			margin: 30px 20px 0px 20px;
+		}
+		
+		.index{
+			font-size: 40px;
+			width: 282px;
+			float: left;
+		}
+		.line{
+			border: solid 0px #eaeaea;
+			border-bottom-width: 1px;
+			width: 980px;
+		}
+		
+		.textBox{
+			list-style:none;
+			padding-bottom:20px;
+		}
+		
+		.agreement{
+			border: solid 1px #E3E3E3;
+			background-color: #F7F7F7;
+			width: 660px;
+			height: 34px;
+			margin-left: 282px;
+			padding-top: 12px;
+		}
+		
+		.join{
+			background: url(joinBtn.jpg);
+			width: 143px;
+			height: 41px;
+		}
+		
+		.cancel{
+			background: url(cancelBtn.jpg);
+			width: 143px;
+			height: 41px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 꼭대기부 -->
+	<form style = "width:1878.667px; height:1280px; border:dotted 1px red;">
+		<div id = "body">
+			<h2 class = "tit-join">
+				<img src="https://pics.auction.co.kr/join/h2_tit_join.png" alt="옥션 회원가입">
+			</h2>
+			<div class="centerPad">
+				<label class="index">1 본인인증</label>
+		  		<img alt="이미지를 찾을 수 없습니다." src="mobile.jpg"><img alt="이미지를 찾을 수 없습니다." src="iPIN.jpg"><img alt="이미지를 찾을 수 없습니다." src="foreigner.jpg">
+			</div>
+			<div class="line" style="margin-top:20px;"></div>
+			<div class="centerPad">
+			<label class="index" style="height:325px;">2 정보입력</label>
+			<ul>
+				<li class="textBox">
+					<input type="text" name="text_name" value="이름" style="width:430px; height:30px; background-color:#F5F5F5;" maxlength="12">
+				</li>
+				<li class="textBox">
+					<input type="text" name="text_name" value="아이디" style="width:430px; height:30px; background-color:#F5F5F5;" maxlength="12">
+				</li>
+				<li class="textBox" style="padding-bottom: 5px">
+					<input type="text" name="text_name" value="비밀번호" style="width:430px; height:30px; background-color:#F5F5F5;" maxlength="12">
+					<label style="font-size: 12px;text-decoration:underline;">비밀번호 도움말</label>
+				</li>
+				<li class="textBox">
+					<input type="checkbox">
+					<label style="font-size:12px;">비밀번호를 확인했고 사용하겠습니다.</label>
+				</li>
+				<li class="textBox" style="padding-bottom: 5px">
+					<select style="width:135px; height:40px; background-color:#F5F5F5;">
+						<option selected="">휴대폰 번호 선택</option>
+					</select>
+					<label>-</label>
+					<input type="text" name="text_name" style="width:130px; height:30px; background-color:#F5F5F5;" maxlength="12">
+					<label>-</label>
+					<input type="text" name="text_name" style="width:130px; height:30px; background-color:#F5F5F5;" maxlength="12">
+				</li>
+				<li class="textBox" style="padding-top: 10px; padding-bottom:5px;">
+					<input type="text" name="text_name" style="width:130px; height:30px; background-color:#F5F5F5;" maxlength="12">
+					<label>@</label>
+					<select style="width:135px; height:40px; background-color:#F5F5F5;">
+						<option selected="">선택</option>
+					</select>					
+				</li>
+				<li class="textBox" style="padding-bottom:5px;">
+					<input type="checkbox">
+					<label style="font-size:12px;">이벤트/쇼핑정보 SMS 수신에 동의합니다.</label>
+				</li>
+				<li class="textBox">
+					<input type="checkbox">
+					<label style="font-size:12px;">이벤트/쇼핑정보 이메일 수신에 동의합니다.</label>
+				</li>
+			</ul>
+		</div>
+			<div class="line" style="margin-top:20px;"></div>
+			<div class="centerPad">
+			<div>
+  				<label class="index" style="height:370px;">3 약관동의</label>
+			</div>
+  			<div>
+				<input type="checkbox">
+				<label style="font: bold 15px Malgun Gothic,Dotum;"> [전체동의] 옥션 회원가입 약관에 모두 동의합니다.</label>
+				<br>
+				<label style="font: 12px Malgun Gothic,Dotum;">[옥션 이용약관, 전자금융거래 이용약관, 개인정보 수집 및 이용, 개인정보의 제3자 제공, 개인정보의 취급 위탁]</label>
+				
+				<div class="agreement" style="margin-top:12px;">
+					<input type="checkbox">
+					<label style="font: bold 13px Malgun Gothic,Dotum;">옥션 이용약관 동의(필수)</label>
+					<label style="font: 11px Malgun Gothic,Dotum;text-decoration:underline;">약관 전체보기</label>
+				</div>
+				<div class="agreement">
+					<input type="checkbox">
+					<label style="font: bold 13px Malgun Gothic,Dotum;">전자금융거래 이용약관 동의(필수)</label>
+					<label style="font: 11px Malgun Gothic,Dotum;text-decoration:underline;">약관 전체보기</label>
+				</div>
+				<div class="agreement">
+					<input type="checkbox">
+					<label style="font: bold 13px Malgun Gothic,Dotum;">개인정보 수집 및 이용 동의(필수)</label>
+					<label style="font: 11px Malgun Gothic,Dotum;text-decoration:underline;">약관 전체보기</label>
+				</div>
+				<div class="agreement">
+					<input type="checkbox">
+					<label style="font: bold 13px Malgun Gothic,Dotum;">개인정보의 제3자제공 동의(선택)</label>
+					<label style="font: 11px Malgun Gothic,Dotum;text-decoration:underline;">약관 전체보기</label>
+				</div>
+				<div class="agreement">
+					<input type="checkbox">
+					<label style="font: bold 13px Malgun Gothic,Dotum;">개인정보의 취급 위탁 동의(선택)</label>
+					<label style="font: 11px Malgun Gothic,Dotum;text-decoration:underline;">약관 전체보기</label>
+				</div>
+				<div class="agreement">
+					<input type="checkbox">
+					<label style="font: bold 13px Malgun Gothic,Dotum;">옥션 위치정보 이용약관 동의(선택)</label>
+					<label style="font: 11px Malgun Gothic,Dotum;text-decoration:underline;">약관 전체보기</label>
+				</div>
+				<div style="margin:17px;">
+					<input type="checkbox">
+					<label style="font: bold 15px Malgun Gothic,Dotum;"> [전체동의] 옥션 회원가입 약관에 모두 동의합니다.</label>
+				</div>
+  			</div>
+		</div>
+			<div class="line" style="margin-top:20px;"></div>
+			<div style="padding-left:282px;">
+			<ul>
+				<li style="font: 12px Malgun Gothic,Dotum;">옥션은 온라인 마켓플레이스(장터)로 거래는 모두 회원 간의 커뮤니케이션에 의해 결정됩니다. 따라서 정확한 전화번호 및 주소 (이메일 포함)를 입력하셔야 정상적인 거래가 가능하며, 부정확한 개인정보로 인한 책임과 불이익은 회원 본인이 감수하게 되오니 개인정보 입력 시 유의하시기 바랍니다.
+				</li>
+			</ul>
+		</div>
+			<div align="center">
+				<input type="button" class="join">
+				<input type="button" class="cancel">
+		</div>
+		</div>
+	</form>
+</body>
+</html>

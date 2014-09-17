@@ -1,0 +1,5 @@
+package guestModel;
+
+public class GuestDao {
+
+}

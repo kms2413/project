@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<%@page import="java.util.Date"%>
+<%
+	session.setAttribute("test", "I am test");
+	if(request.isRequestedSessionIdValid()==true)
+		out.print("Session is valid." + "<br/>");
+	else
+		out.print("Session is invalid." + "<br/><br/>");
+	
+	//-----------------------------------------
+	session.setMaxInactiveInterval(60*20);
+	out.print("session valid time:" + session.getMaxInactiveInterval()/60 +"minutes <br/>");
+	
+	long createdTime=session.getCreationTime();
+	out.print("Session Created Time:" + new Date(createdTime)+"<br/>");
+	
+	long lastTime = session.getLastAccessedTime();
+	out.print("Last accessed time:" + new Date(lastTime) + "<br/>");
+	
+	long time = (lastTime-createdTime)/60000;
+	out.print("you've stayed for: "+ time + "Minutes <br/><br/>");
+%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

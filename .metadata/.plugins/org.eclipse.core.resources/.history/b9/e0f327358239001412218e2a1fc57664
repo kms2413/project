@@ -1,0 +1,44 @@
+package addr;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import dataBase.ConnectionProvider;
+import dataBase.JdbcUtil;
+
+public class AddrDao {
+	private static AddrDao instance = new AddrDao();
+	
+	public static AddrDao getInstance(){
+		return instance;
+	}
+	
+	public int insert(AddrDto addr){
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+		int value = 0;
+		
+		try{
+			String sql = "insert into addr values(addr_num_seq.nextval,?,?,?)";
+			conn = ConnectionProvider.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, addr.getName());
+			pstmt.setString(2, addr.getPhone());
+			pstmt.setString(3, addr.getEmail());
+			
+			value= pstmt.executeUpdate();
+		}catch(Exception e){
+			System.out.println("Addr Inser Error..");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+	}
+	
+	public int select(AddrDto addr){
+		
+	}
+}

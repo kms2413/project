@@ -1,0 +1,10 @@
+package addr;
+
+public class AddrDao {
+	private static AddrDao instance = new AddrDao();
+	
+	public static AddrDao getInstance(){
+		return instance;
+	}
+	
+}

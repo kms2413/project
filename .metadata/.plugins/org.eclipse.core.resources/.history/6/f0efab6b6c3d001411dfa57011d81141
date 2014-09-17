@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+     <%@ page import = "guestModel.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	request.setCharacterEncoding("euc-kr");
+%>
+<jsp:useBean id = "guest" class = "guestModel.GuestDto"/>
+<jsp:setProperty property ="*" name = "guest"/>
+<%
+	int num =Integer.parseInt(request.getParameter("id"));
+	out.print("num"+num);
+	int check = GuestDao.getInstance().delete(guest.getNum());
+	out.print("check:"+check);
+%>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	
+</body>
+</html>

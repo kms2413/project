@@ -1,0 +1,10 @@
+package boardModel;
+
+import java.util.Date;
+
+public class BoardDto {
+	private int boardNumber, readCount, groupNumber, sequenceNumber, sequenceLevel;
+	private String writer, subject, email, content, password, ip ;
+	private Date writeDate;
+
+}

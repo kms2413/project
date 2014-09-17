@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+function writeCheck(form){
+	if(form.name.value==""){
+		alert("이름 입력하세여~");
+		form.name.focus();
+		return false;
+	}
+}

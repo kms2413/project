@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+	.total{
+		width: 365px; height:150px;
+		border:dotted 1px red;
+		display:block;
+		
+	}
+	
+	.bottom{
+		border: solid 1px blue;
+		display:block;
+		text-align:right;
+		
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
+	}
+	
+	.middle{
+		border: solid 1px yellow;
+		
+	}

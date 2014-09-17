@@ -1,0 +1,17 @@
+create table grade(
+	num number(2),
+	name varchar2(20) not null,
+	kor number(3) not null,
+	math number(3) not null,
+	eng number(3) not null,
+	total number(3) default 0,
+	average number(4,1) default 0.0,
+	primary key(num)
+);
+
+create sequence grade_num_seq
+start with 1
+increment by 1
+
+select * from grade;
+

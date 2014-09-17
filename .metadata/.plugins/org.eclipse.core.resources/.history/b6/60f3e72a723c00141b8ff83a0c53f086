@@ -1,0 +1,11 @@
+function registerForm(form){
+	var check = false;
+	var str ="";
+	for(var i=0; i <form.interestValue.length;i++){
+		if(form.interestValue[i].checked==true){
+			str +=form.interestValue[i].value+",";
+			check==true;
+		}
+		
+	}
+}

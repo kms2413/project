@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+
+function writeForm(form){
+	if(form.name.value==""){
+		alert("NAME!!!!!!!!!");
+		form.name.focus();
+		return false;
+	}
+	
+	if(form.kor.value==""){
+		alert("KORRRRR!!!!!!!!!");
+		form.kor.focus();
+		return false;
+	}
+	
+	if(form.eng.value==""){
+		alert("ENGGGGGGGGGG!!!!!!!!!");
+		form.eng.focus();
+		return false;
+	}
+	
+	if(form.math.value==""){
+		alert("MATHHHHHH!!!!!!!!!");
+		form.math.focus();
+		return false;
+	}
+
+}

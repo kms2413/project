@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel= "stylesheet" type = "text/css" href = "css10_myStyle.css"/>
+</head>
+<body>
+	<div align ="center">
+		<form class = "border_doc">
+			<div class = "title">글쓰기</div>
+			<div style = "text-align:right; color:red;">글목록</div>
+			<div class = "border_div">
+				<div class = "main_left" style ="border-top-width:1px;">작성자</div>
+				<div class = "main_right" style = "border-top-width:1px;"><input type="text" name="writer"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">제목</div>
+				<div class = "main_right"><input type="text" size = "80" name="writer"></div>
+			</div>
+			
+			<div>
+				<div class = "main_left">이메일</div>
+				<div class = "main_right"><input type="text" size = "50" name="writer"></div>
+			</div>
+			
+			<div>
+				<div class = "main_left" style = "height:300px;">내용</div>
+				<div class = "main_right" style = "height:300px;"><textarea rows = "22" cols = "67" name = "contacts"></textarea></div>			
+			</div>
+		
+			<div>
+				<div class = "main_left">비밀번호</div>
+				<div class = "main_right"><input type="text" size = "80" name="writer"></div>
+			</div>
+			
+			<div>
+				<input type = "button" value = "글쓰기">
+				<input type = "reset" value = "다시작성">
+				<input type = "button" value = "목록보기">
+			</div>
+		
+		</form>
+	</div>
+</body>
+</html>

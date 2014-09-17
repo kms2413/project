@@ -1,0 +1,5 @@
+package addr;
+
+public class AddrDao {
+
+}

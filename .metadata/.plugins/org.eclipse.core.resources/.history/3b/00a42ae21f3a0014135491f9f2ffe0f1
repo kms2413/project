@@ -1,0 +1,47 @@
+package gradeModel;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import dataBase.ConnectionProvider;
+import dataBase.JdbcUtil;
+
+public class GradeDao {
+	private static GradeDao instance = new GradeDao();
+	
+	public static GradeDao getInstance(){
+		return instance;
+	}
+	
+	public int insert(GradeDto grade){
+		int total = grade.getEng()+grade.getKor()+grade.getMath();
+		grade.setTotal(total);
+		
+		float average = (float) grade.getTotal()/3;
+		grade.setAverage(average);
+		
+		int value = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			String sql = "insert into grade values(grade_num_seq.nextval, ?,?,?,?,?,?)";
+			conn = ConnectionProvider.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, grade.getName());
+			pstmt.setInt(2, grade.getKor());
+			pstmt.setInt(3, grade.getEng());
+			pstmt.setInt(4, grade.getMath());
+			pstmt.setInt(5, grade.getTotal());
+			pstmt.setFloat(6, grade.getAverage());
+		}catch(Exception e){
+			System.out.println("Insert Error");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+	}
+
+}

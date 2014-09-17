@@ -1,0 +1,92 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>회원가입</title>
+<link rel= "stylesheet" type = "text/css" href = "css11_myStyle.css"/>
+</head>
+<body>
+	<div align="center">회원가입(*필수입력사항입니다.)
+		<form class = "border_doc">
+			<div class = "border_div">
+				<div class = "main_left">아이디</div>
+				<div class = "main_right">*<input type="text" size = "40" name="writer">
+										<input type = "button" value = "아이디중복">
+				</div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">비밀번호</div>
+				<div class = "main_right">*<input type="text" size = "40" name="writer"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">비밀번호확인</div>
+				<div class = "main_right">*<input type="text" size = "40" name="writer"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">이름</div>
+				<div class = "main_right">*<input type="text" size = "40" name="writer"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">주민번호</div>
+				<div class = "main_right">*<input type="text" size = "20" name="writer">-<input type="text" size = "20" name="writer"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">이메일</div>
+				<div class = "main_right"><input type="text" size = "40" name="writer"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">우편번호</div>
+				<div class = "main_right"><input type="text" size = "40" name="writer"><input type = "button" value = "우편번호검색"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">주소</div>
+				<div class = "main_right"><input type="text" size = "60" name="writer"></div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">직업</div>
+				<div class = "main_right">
+					<select name = "fruit1">
+						<option value = "apple"> 사과</option>
+						<option value = "banana" > 바나나</option>
+						<option value = "pineapple">파인애플</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">메일수신 </div>
+				<div class = "main_right">
+					<input type = "radio" name = "gender" value = "예" checked/>예
+					<input type = "radio" name = "gender" value = "노" />노
+				</div>
+			</div>
+			
+			<div class = "border_div">
+				<div class = "main_left">관심분야</div>
+				<div class = "main_right">
+					<input type = "checkbox" name = "subject" value = "java" />경제
+					<input type = "checkbox" name = "subject" value = "jsp" />아이티
+					<input type = "checkbox" name = "subject" value = "iphone" />KOSTA
+					<input type = "checkbox" name = "subject" value = "iphone" />GODJong
+				</div>
+			</div>
+			
+			<div >
+				<input type = "button" value = "가입">
+				<input type = "reset" value = "취소">
+			</div>
+			
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+create table member(
+	num number(5), --sequence
+	id varchar2(10) not null, --id
+	password varchar2(10) not null, --pw
+	name varchar2(20) not null, --name
+	jumin1 varchar2(6) not null,	
+	jumin2 varchar2(7) not null,
+	email varchar2(50) not null,
+	zipcode varchar2(50) not null,
+	address varchar2(100) not null,
+	job varchar2(20) not null,
+	mailing varchar2(5) not null,
+	interest varchar2(30) not null,
+	member_level varchar2(2) not null,
+	register_date date not null,
+	primary key(num)
+);
+
+create sequence member_num_seq
+start with 1
+increment by 1;
+
+select * from member;
+
+create table testing(
+	num number(5),
+	name varchar2(20)
+);
+
+insert into testing values(1,'가');
+insert into testing values(2,'나');
+insert into testing values(3,'다');
+insert into testing values(4,'라');
+insert into testing values(5,'마');
+
+select * from testing;
+
+select * from zipcode;
+
+create table zipcode(
+	zipcode varchar2(17),
+	sido varchar2(14),
+	gugun varchar2(40),
+	dong varchar2(60),
+	ri varchar2(70),
+	bunji varchar2(27),
+	seq number(10),
+	primary key(seq)
+);
+
+select *from zipcode;
+
+select * from member;
+
+create table testzip(
+	zipcode varchar2(17),
+	sido varchar2(14),
+	gugun varchar2(40),
+	dong varchar2(60),
+	ri varchar2(90),
+	bunji varchar2(27),
+	seq number(10),
+	primary key(seq)
+);
+
+select * from testzip;
+
+create table guest(
+	num number(8),
+	name varchar2(20) not null,
+	password varchar2(15) not null,
+	message varchar2(300) not null,
+	write_date date,
+	primary key(num)
+);
+
+create sequence guest_num_seq
+start with 1
+increment by 1;

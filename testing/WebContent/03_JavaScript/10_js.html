@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//Number object
+	var su = 10;
+	var value = new Number(su);
+	document.write("su: " + su +"<br/>" + "value: " + value + "<br/>");
+	document.write("max: " + Number.MAX_VALUE + "&nbsp;&nbsp; min: " + Number.MIN_VALUE+ "<br/><br/><br/>");
+	
+	var num = 123.45678;
+	document.write("num: " + num.toFixed(3) +"<br/>");
+	document.write("num: " + num.toPrecision(10) + "<br/>");
+	document.write("num: " + num.toPrecision(5)+"<br/><br/><br/>");
+	
+	//Math Object
+	document.write("Abs value: " + Math.abs(-15) + "<br/>");
+	document.write("Max: " + Math.max(10,15) + "<br/>");
+	document.write("Min: " + Math.min(10,15)+"<br/>");
+	document.write("power: " + Math.pow(2,3) + "<br/>");
+	document.write("Random: " + Math.random() + "<br/><br/><br/>")
+	
+	var strArray=new Array('Apple', 'Banana', "Straw");
+	//var strArray=['apple', 'banana'];
+	var suArray=new Array();
+	//var suArry=[];
+	suArray[0]=10;
+	
+	document.write("concat: " + strArray.concat(suArray) + "<br/>");
+	document.write("join: " + strArray.join('')+"<br/>");
+	document.write("slice: "+ strArray.slice(1) + "<br/>");
+	
+	strArray.pop();
+	document.write("str: "+ strArray+"<br/>");
+	strArray.push("Melon");
+	document.write("str: " + strArray+"<br/>");
+	document.write("str: "+ strArray.sort() + "<br/>");
+	document.write("str: " + strArray.reverse() + "<br/><br/>");
+	
+	//Global Object (var g = new Global error)
+	var su="10";
+	document.write(parseInt(su) + 100+ "<br/>");
+	
+	var url+"!@#$%^&*~!@#$%";
+	var a = encodeURI(url);
+	var b = encodeURIComponent(url);
+	
+	document.write("url: " + url + "<br/>");
+	document.write("a: "+ a + "<br/>");
+	document.write("b: " +b+ "<br/>");
+	document.write(decodeURI(a)+"<br/>");
+	document.write(decodeURIComponent(b)+"<br/>");
+	
+	var str =window.alert("hahahaha");
+	//alert(str);
+	eval(str);
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

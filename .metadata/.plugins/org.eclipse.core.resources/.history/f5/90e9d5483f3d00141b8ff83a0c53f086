@@ -1,0 +1,44 @@
+package guestModel;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Timestamp;
+import java.util.Date;
+
+import dataBase.ConnectionProvider;
+import dataBase.JdbcUtil;
+
+public class GuestDao {
+	private static GuestDao instance = new GuestDao();
+	public static GuestDao getInstance(){
+		return instance;
+	}
+	
+	public int insert(GuestDto guest){
+		guest.setWriteDate(new Date());
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		int value = 0;
+		
+		try{
+			String sql = "insert into guest values(guest_num_seq.nextval, ?,?,?,?)";
+			conn = ConnectionProvider.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, guest.getName());
+			pstmt.setString(2, guest.getPassword());
+			pstmt.setString(3, guest.getMessage());
+			pstmt.setTimestamp(4, new Timestamp(guest.getWriteDate().getTime));
+			
+			value = pstmt.executeUpdate()
+		}catch(Exception e){
+			System.out.println("GuestDao Insert Error");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+		
+	}
+}

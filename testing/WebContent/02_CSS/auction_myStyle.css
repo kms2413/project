@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+.body{
+	width:980px; 
+	height:1276px;
+	margin-right:449.333px;
+	margin-left:449.333px;
+	border:dotted 1px black;
+}

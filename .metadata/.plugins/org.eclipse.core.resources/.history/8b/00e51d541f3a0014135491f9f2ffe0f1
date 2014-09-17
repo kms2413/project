@@ -1,0 +1,9 @@
+package gradeModel;
+
+public class GradeDao {
+	private static GradDao instance = new GradeDao();
+	public static GradeDao getInstance(){
+		return instance;
+	}
+
+}

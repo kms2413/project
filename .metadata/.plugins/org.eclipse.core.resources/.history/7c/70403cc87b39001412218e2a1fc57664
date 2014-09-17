@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+
+function checkForm(form){
+	window.alert("okay");
+}

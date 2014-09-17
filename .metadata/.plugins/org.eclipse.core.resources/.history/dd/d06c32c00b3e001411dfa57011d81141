@@ -1,0 +1,8 @@
+package boardModel;
+
+public class BoardDao {
+	private static BoardDao instance = new BoardDao();
+	public static BoardDao getInstance(){
+		return instance;
+	}
+}

@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+   <%@ page import = "addr.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	request.setCharacterEncoding("euc-kr");
+String name = request.getParameter("name");
+
+AddrDto dto = AddrDao.getInstance().select(name);
+%>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<link rel = "stylesheet" type = "text/css" href="addr.css"/>
+	<script type="text/javascript" src = "addr.js"></script>
+</head>
+<body>
+	<a href="index.html">Menu</a>
+	<br/><br/>
+	
+	<%if(dto==null){ %>
+		<form action ="update.jsp" method = "post">
+			<table border = "0" align = "center" width="300" cellpadding = "0" cellspacing ="0">
+				<tr>
+					<td colspan = "2" align = "center" height = "30">
+						Name you want to edit?	
+					</td>
+				</tr>
+				
+				<tr>
+					<td height = "30">Name</td>
+					<td height = "30">
+						<input type = "text" name = "name"/>
+						<input type = "button" value = "Search" onclick = "deleteForm(deleteFor)"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<%}else { %>
+			<form action = "updateOk.jsp" method ="post">
+				<table border = "0" align = "center" cellpadding ="0" cellspacing="0" width="300">
+					<tr>
+						<td height = "30">Name</td>
+						<td height = "30">
+						
+							<input type = "hidden" name = "num" value = "<%=dto.getNum() %>"/>
+							<input type = "text" value = "<%=dto.getName() %>" disabled = "disabled"/>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<td height = "30">Phone</td>
+						<td height = "30">
+							<input type = "text" name = "phone" value = "<%=dto.getPhone() %>"/>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<td height = "30">Email</td>
+						<td height = "30">
+							<input type = "text" name = "email" value = "<%=dto.getEmail() %>"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+		<%} %>
+</body>
+</html>

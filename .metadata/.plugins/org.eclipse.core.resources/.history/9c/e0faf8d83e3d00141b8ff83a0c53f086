@@ -1,0 +1,23 @@
+package guestModel;
+
+public class GuestDao {
+	private static GuestDao instance = new GuestDao();
+	public static GuestDao getInstance(){
+		return instance;
+	}
+	
+	public int insert(GuestDto guest){
+		int value = 0;
+		
+		try{
+			
+		}catch(Exception e){
+			System.out.println("GuestDao Insert Error");
+			e.printStackTrace();
+		}finally{
+			
+		}
+		return value;
+		
+	}
+}

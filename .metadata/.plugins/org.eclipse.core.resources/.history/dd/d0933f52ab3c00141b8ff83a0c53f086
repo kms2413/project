@@ -1,0 +1,122 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	String id = (String) session.getAttribute("id");
+	String password = (String) session.getAttribute("password");
+	String name = (String) session.getAttribute("name");
+	String jumin1 = (String) session.getAttribute("jumin1");
+	String jumin2 = (String) session.getAttribute("jumin2");
+	String email = (String) session.getAttribute("email");
+	String zipcode = (String) session.getAttribute("zipcode");
+	String address = (String) session.getAttribute("address");
+	
+%>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  	<jsp:include page = "index.jsp"/>
+      <div align="center">
+         <div>회원가입(*필수입력사항입니다.)</div>
+         <form class=border_doc name="memberForm" action="updateOk.jsp" method="post" onsubmit="return registerForm(this)">
+            <div class=border_div>
+               <div class=border_box_left>아이디</div>
+               <div class=border_box_right>
+                  <span>*<input type="text" name="id"  size="30" value = "<%=id%>"/></span>
+               </div>
+            </div>   
+            
+            <div class=border_div>
+               <div class=border_box_left>비밀번호</div>
+               <div class=border_box_right>
+                  <span>*<input type="password" name="password" value = "<%=password %>" size="30"/></span>
+               </div>
+            </div>
+            
+            <div class=border_div>
+               <div class=border_box_left>비밀번호확인</div>
+               <div class=border_box_right>
+                  <span>*<input type="password" name="passwordCheck" value = "<%=password %>" size="30"/></span>
+               </div>
+            </div>
+            
+            <div class=border_div>   
+               <div class=border_box_left>이름</div>
+               <div class=border_box_right>
+                  <span>*<input type="text" name="name" value = "<%=name %>" size="30"/></span>
+               </div>
+            </div>
+            
+            <div class=border_div>
+               <div class=border_box_left>주민번호</div>
+               <div class=border_box_right>
+                  <span>*<input type="text" name="jumin1"value = "<%=jumin1 %>"  size="20"/></span>
+                  <span>-<input type="text" name="jumin2"value = "<%=jumin2 %>"  size="20"/></span>
+               </div>
+            </div>
+            
+            <div class=border_div>
+               <div class=border_box_left>이메일</div>
+               <div class=border_box_right>
+                  <span><input type="text" name="email" value = "<%=email %>" size="30"/></span>
+               </div>
+            </div>
+            
+            <div class=border_div>
+               <div class=border_box_left>우편번호</div>
+               <div class=border_box_right>
+                  <span><input type="text" name="zipcode" value = "<%=zipcode%>" size="30"/></span>
+                  <span><input type="button" value="우편번호검색" onclick = "zipcodeRead()"></span>
+               </div>
+            </div>
+            
+            <div class=border_div>
+               <div class=border_box_left>주소</div>
+               <div class=border_box_right>
+                  <span><input type="text" name="address" value = "<%=address%>" size="50"/></span>
+               </div>
+            </div>
+            
+            <div class=border_div>   
+               <div class=border_box_left>직업</div>
+               <div class=border_box_right>
+                  <span>
+                     <select name="job" style="width:60;">
+                        <option value="sp">전문직</option>
+                        <option value="engineer">엔지니어</option>
+                        <option value="constructor">건설업</option>
+                        <option value="student">학생</option>
+                     </select>
+                  </span>
+               </div>               
+            </div>
+            
+            <div class=border_div>
+               <div class=border_box_left>메일수신</div>
+               <div class=border_box_right>
+                  <span><input type="radio" name="mailing" value="yes"/>yes</span>
+                  <span><input type="radio" name="mailing"  value="no"/>no</span>
+               </div>
+               
+               <div class=border_box_left>관심분야</div>
+               <div class=border_box_right>
+                  <span><input type="checkbox" name="interestValue" value="경제"/>경제</span>
+                  <span><input type="checkbox" name="interestValue" value="IT"/>IT</span>
+                  <span><input type="checkbox" name="interestValue" value="음악"/>음악</span>
+                  <span><input type="checkbox" name="interestValue" value="미술"/>미술</span>
+                  <span><input type="hidden" name="interest"/></span>
+               </div>
+            </div>
+            <div class="border_div">
+               <span><input type="submit" value="가입"></span>
+               <span><input type="reset" value="취소"></span>      
+            </div>                        
+         </form>
+      </div>
+
+</body>
+</html>

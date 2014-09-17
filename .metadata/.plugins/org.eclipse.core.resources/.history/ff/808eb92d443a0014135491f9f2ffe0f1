@@ -1,0 +1,18 @@
+package dataBase;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+
+public class JdbcUtil {
+	public static void close(Connection conn){
+		if(conn!=null){
+			try{
+				conn.close();
+			}catch(SQLException e){
+				System.out.println("Connection Close Error");
+				e.printStackTrace();
+			}
+		}
+	}
+}

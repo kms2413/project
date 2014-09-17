@@ -1,0 +1,121 @@
+package addr;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import dataBase.ConnectionProvider;
+import dataBase.JdbcUtil;
+
+public class AddrDao {
+	private static AddrDao instance = new AddrDao();
+	
+	public static AddrDao getInstance(){
+		return instance;
+	}
+	
+	public int insert(AddrDto addr){
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+		int value = 0;
+		
+		try{
+			String sql = "insert into addr values(addr_num_seq.nextval,?,?,?)";
+			conn = ConnectionProvider.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, addr.getName());
+			pstmt.setString(2, addr.getPhone());
+			pstmt.setString(3, addr.getEmail());
+			
+			value= pstmt.executeUpdate();
+		}catch(Exception e){
+			System.out.println("Addr Inser Error..");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+	}
+	
+	public AddrDto select(String name){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		AddrDto dto =null;
+		
+		try{
+			String sql = "select * from addr where name =?";
+			conn = ConnectionProvider.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				dto = new AddrDto();
+				dto.setNum(rs.getInt("num"));
+				dto.setName(rs.getString("name"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setEmail(rs.getString("email"));
+			}
+			
+		}catch(Exception e){
+			System.out.println("AddrDao >>Select Error ");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return dto;
+	}
+	
+	public int delete(String name){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int value = 0;
+		
+		try{
+			String sql = "delete from addr where name = ?";
+			conn = ConnectionProvider.getConnection();
+			
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			value = pstmt.executeUpdate();
+		}catch(Exception e){
+			System.out.println("Addr Delete Error:");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+	}
+	
+	public int update(AddrDto addr){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int value = 0;
+		
+		try{
+			String sql = "update addr set phone = ?, email = ? where num =?";
+			conn = ConnectionProvider.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, addr.getPhone());
+			pstmt.setString(2, addr.getEmail());
+			pstmt.setInt(3, addr.getNum());
+			
+			value = pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("Update Error");
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+		
+	}
+}

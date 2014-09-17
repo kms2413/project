@@ -1,0 +1,14 @@
+package memberModel;
+
+public class MemberDao {
+	private static MemberDao instance = new MemberDao();
+	public static MemberDao getInstance(){
+		return instance;
+		
+	}
+	
+	public int insert(MemberDto member){
+		int value =0;
+		return value;
+	}
+}

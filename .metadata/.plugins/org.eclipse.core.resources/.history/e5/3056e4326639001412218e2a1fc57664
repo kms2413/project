@@ -1,0 +1,8 @@
+package addr;
+
+public class AddrDto {
+	private String name, phone, email;
+	private int num;
+	
+
+}

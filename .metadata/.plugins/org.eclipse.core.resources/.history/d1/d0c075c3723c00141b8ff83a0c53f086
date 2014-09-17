@@ -1,0 +1,19 @@
+function registerForm(form){
+	var check = false;
+	var str ="";
+	for(var i=0; i <form.interestValue.length;i++){
+		if(form.interestValue[i].checked==true){
+			str +=form.interestValue[i].value+",";
+			check==true;
+		}
+		
+	}
+	
+	if(check ==false){
+		alert("Please Check at least one");
+		form.interestValue[0].focus();
+		return false;
+	}
+	
+	form.interest.value=str;
+}
