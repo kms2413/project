@@ -143,6 +143,7 @@ public class BoardDao {
 				board.setSubject(rs.getString("subject"));
 				board.setEmail(rs.getString("email"));
 				board.setContent(rs.getString("content"));
+				board.setWriteDate(rs.getDate("write_date"));
 				
 				valueList.add(board);
 			}
