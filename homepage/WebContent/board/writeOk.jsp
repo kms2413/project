@@ -29,6 +29,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%if(check>0){ %>
+		<script type="text/javascript">
+			alert("Done");
+			location.href="write.jsp";
+		</script>
+	<%}else{ %>
+		<script type="text/javascript">
+			alert("Failed");
+			location.href="write.jsp";
+		</script>
+	<% }%>
 </body>
 </html>

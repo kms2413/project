@@ -67,7 +67,7 @@
 			<div class="border_div">
 				<div class="border_box_left">비밀번호</div>
 				<div class="border_box_right">
-					<input type="password" name="pw">
+					<input type="password" name="password">
 				</div>
 			</div>
 
