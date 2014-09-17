@@ -128,7 +128,23 @@ public class BoardDao {
 		ArrayList<BoardDto> valueList = null;
 		
 		try{
-			String sql = "select * from(select rownum as rnum, a.* from((select * from board order by group_number desc, sequence_number asc)a))b where b.rnum >=1 and b.rnum<=?;";
+			String sql = "select * from(select rownum as rnum, a.* from((select * from board order by group_number desc, sequence_number asc)a))b where b.rnum >=? and b.rnum<=?;";
+			conn = ConnectionProvider.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			rs=pstmt.executeQuery();
+			
+			valueList=new ArrayList<BoardDto>();
+			while(rs.next()){
+				BoardDto board = new BoardDto();
+				board.setBoardNumber(rs.getInt("board_number"));
+				board.setWriter(rs.getString("writer"));
+				board.setSubject(rs.getString("subject"));
+				board.setEmail(rs.getString("email"));
+				board.setContent(rs.getString("content"));
+			}
+			
 			
 		}catch(Exception e){
 			System.out.println(" getBoard Error");
