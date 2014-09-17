@@ -84,7 +84,7 @@ public class BoardDao {
 				
 				
 			}else{
-				sql ="select max(group_Num) from board";
+				sql ="select max(group_Number) from board";
 				conn = ConnectionProvider.getConnection();
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
@@ -128,7 +128,7 @@ public class BoardDao {
 		ArrayList<BoardDto> valueList = null;
 		
 		try{
-			String sql = "select * from(select rownum as rnum, a.* from((select * from board order by group_number desc, sequence_number asc)a))b where b.rnum >=? and b.rnum<=?;";
+			String sql = "select * from(select rownum as rnum, a.* from((select * from board order by group_number desc, sequence_number asc)a))b where b.rnum >=? and b.rnum<=?";
 			conn = ConnectionProvider.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, startRow);
@@ -143,6 +143,8 @@ public class BoardDao {
 				board.setSubject(rs.getString("subject"));
 				board.setEmail(rs.getString("email"));
 				board.setContent(rs.getString("content"));
+				
+				valueList.add(board);
 			}
 			
 			
