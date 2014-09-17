@@ -159,4 +159,29 @@ public class BoardDao {
 		
 		return valueList;
 	}
+	
+	public int getCount(){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int value = 0;
+		
+		try{
+			String sql = "select count(*) from board";
+			conn=ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next())value = rs.getInt(1);
+			
+		}catch(Exception e)	{
+			e.printStackTrace();
+			System.out.println("getCount ERror");
+		}finally{
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return value;
+	}
 }
