@@ -32,12 +32,12 @@
 	<%if(check>0){ %>
 		<script type="text/javascript">
 			alert("Done");
-			location.href="write.jsp";
+			location.href="list.jsp";
 		</script>
 	<%}else{ %>
 		<script type="text/javascript">
 			alert("Failed");
-			location.href="write.jsp";
+			location.href="list.jsp";
 		</script>
 	<% }%>
 </body>
