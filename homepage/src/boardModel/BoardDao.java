@@ -144,7 +144,7 @@ public class BoardDao {
 				board.setEmail(rs.getString("email"));
 				board.setContent(rs.getString("content"));
 				board.setWriteDate(rs.getDate("write_date"));
-				
+				board.setIp(rs.getString("ip"));
 				valueList.add(board);
 			}
 			

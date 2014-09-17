@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
+	request.setCharacterEncoding("euc-kr");
 	int boardNumber = 0;
 	int groupNumber = 1;
 	int sequenceNumber = 0;

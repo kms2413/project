@@ -7,7 +7,7 @@
    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	int boardSize=3;
+	int boardSize=10;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 %>
@@ -37,6 +37,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+	function readFun(boardNumber, currentPage){
+		var url = "read.jsp?boardNumber="+boardNumber+"&pageNumber="+currentPage;
+	}
+</script>
 </head>
 <body>
 	<center>글목록</center>
@@ -57,11 +62,11 @@
 	<% }else{%>
 		<table border = "1" width = "530" cellpadding ="2" cellspacing = "0" align = "center">
 			<tr>
-				<td align ="center" width = "30">번호</td>
+				<td align ="center" width = "50">번호</td>
 				<td align ="center" width = "250">제목</td>
 				<td align ="center" width = "70">작성자</td>
-				<td align ="center" width = "80">작성일</td>
-				<td align ="center" width = "50">조회수</td>
+				<td align ="center" width = "110">작성일</td>
+				<td align ="center" width = "70">조회수</td>
 				<td align ="center" width = "50">IP</td>
 			</tr>
 			
@@ -79,7 +84,7 @@
 							
 						}%>
 							
-						<a href =""><%=board.getSubject() %></a></td>
+						<a href ="javascript:readFun('<%=board.getBoardNumber()%>','<%=currentPage%>')"><%=board.getSubject() %></a></td>
 					<td align ="center" width = "70"><%=board.getWriter() %></td>
 					<td align ="center" width = "80"><%=sdf.format(board.getWriteDate())%></td>
 					<td align ="center" width = "50"><%=board.getReadCount() %></td>
@@ -91,7 +96,7 @@
 	<br/>
 	<center>
 		<%
-		int pageBlock =3;
+		int pageBlock =10;
 	 	if(count >0){
 	 		//총페이지 = 레코드수/한페이지당 게시물 사이즈
 			int pageCount = count/boardSize+(count%boardSize == 0?0:1);
