@@ -7,7 +7,7 @@
    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	int boardSize=10;
+	int boardSize=3;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 %>
@@ -18,7 +18,7 @@
 		pageNumber = "1";
 	}
 	int currentPage = Integer.parseInt(pageNumber);
-	//dfdfsdfasdfasdfs
+
 	//start num and ending numb
 	int startRow= (currentPage-1)*boardSize+1;
 	int endRow=currentPage*boardSize;
@@ -91,12 +91,30 @@
 	<br/>
 	<center>
 		<%
+		int pageBlock =3;
 	 	if(count >0){
-			//총페이지 = 레코드수/한페이지당 게시물 사이즈
-			
-		}
+	 		//총페이지 = 레코드수/한페이지당 게시물 사이즈
+			int pageCount = count/boardSize+(count%boardSize == 0?0:1);
+	 		
+	 		int startPage = (int)((currentPage-1)/pageBlock)*pageBlock+1;
+	 		int endPage = startPage+pageBlock-1;
+	 		
+	 		if(endPage > pageCount) endPage = pageCount;
+	 		
+	 		if(startPage > pageBlock){ %>
+	 			<a href = "list.jsp?pageNumber=<%=startPage-pageBlock%>">[이전]</a>
+	 		<%} %>
+	 		
+	 		<%for(int i = startPage; i<=endPage; i++){%>
+	 			<a href="list.jsp?pageNumber=<%=i%>">[<%=i %>]</a>
+ 			<%} %>
+	 		
+	 		<% if(endPage < pageCount){%>
+	 			<a href = "list.jsp?pageNumber=<%=startPage+pageBlock%>">[다음]</a>
+	 			
+ 			<%} %>
+		<%} %>
 		
-		%>
 	</center>
 	
 	
