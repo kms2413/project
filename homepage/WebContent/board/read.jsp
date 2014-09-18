@@ -20,8 +20,8 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript">
 	function replyFun(boardNumber, groupNumber, sequenceNumber, sequenceLevel){
-		var url ="write.jsp?boardNumber="+boardNumber+"&groupNumber"+groupNumber
-				+"&sequenceNumber"+sequenceNumber+"&sequenceLevel"+sequenceLevel;
+		var url ="write.jsp?boardNumber="+boardNumber+"&groupNumber="+groupNumber
+				+"&sequenceNumber="+sequenceNumber+"&sequenceLevel="+sequenceLevel;
 		//alert(url);
 		location.href=url;
 	}
