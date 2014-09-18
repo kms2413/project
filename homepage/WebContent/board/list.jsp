@@ -44,6 +44,7 @@
 		location.href=url;
 	}
 </script>
+
 </head>
 <body>
 	<center>글목록</center>

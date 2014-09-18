@@ -58,7 +58,7 @@ public class BoardDao {
 	}
 	
 	public void writeNumber(Connection conn, BoardDto board){
-		//루트(그룹번호, 글순서, 글레벨), 답글(그룹번호, 글순서, 글레벨)
+		//猷⑦듃(洹몃９踰덊샇, 湲��닚�꽌, 湲��젅踰�), �떟湲�(洹몃９踰덊샇, 湲��닚�꽌, 湲��젅踰�)
 		int boardNumber = board.getBoardNumber();
 		int groupNumber = board.getGroupNumber();
 		int sequenceNumber = board.getSequenceNumber();
@@ -92,7 +92,7 @@ public class BoardDao {
 			
 			
 			
-			//그룹번호 지정
+			//洹몃９踰덊샇 吏��젙
 			if(rs.next()){
 				max = rs.getInt(1) +1;
 			}else{

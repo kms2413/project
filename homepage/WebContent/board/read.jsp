@@ -9,7 +9,8 @@
 //	out.print("boardN:" + boardNumber + ","+ "pageNumber:" + pageNumber);
 
 	BoardDto board = BoardDao.getInstance().read(boardNumber);
-	out.print(board);
+//	out.print(board);
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 %>
 <html>
 <head>
@@ -17,6 +18,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<table border = "1" width = "510" cellpadding = "2" cellspacing = "0" align = "center">
+		<tr>
+			<td height = "20" width = "125 "align = "center">글번호</td>
+			<td height = "20" width = "125 "align = "center"><%=board.getBoardNumber() %></td>
+			
+			<td height = "20" width = "125 "align = "center">조회수</td>
+			<td height = "20" width = "125 "align = "center"><%=board.getReadCount() %></td>
+		</tr>
+	
+		<tr>
+			<td height = "20" width = "125 "align = "center">작성자</td>
+			<td height = "20" width = "125 "align = "center"><%=board.getWriter() %></td>
+			
+			<td height = "20" width = "125 "align = "center">작성일</td>
+			<td height = "20" width = "125 "align = "center"><%=sdf.format(board.getWriteDate()) %></td>
+		</tr>
+		
+		<tr>
+			
+			<td height = "300" width = "125 "align = "center">글내용</td>
+			<td height = "300" colspan = "3" valign ="top"><%=board.getContent() %></td>
+		</tr>
+	</table>
 </body>
 </html>
