@@ -63,6 +63,11 @@
 		</tr>
 		
 		<tr>
+			<td height = "20" width = "125 "align = "center">이메일</td>
+			<td height = "20" colspan="3"><%=board.getEmail() %></td>
+		</tr>
+		
+		<tr>
 			<td height = "300" width = "125 "align = "center">글내용</td>
 			<td height = "300" colspan = "3" valign ="top"><%=board.getContent() %></td>
 		</tr>

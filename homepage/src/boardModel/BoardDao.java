@@ -318,10 +318,20 @@ public class BoardDao {
 		int value = 0;
 		
 		try{
+			String sql = "update board set email=?, subject=?, content=? where board_number = ?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, board.getEmail());
+			pstmt.setString(2, board.getSubject());
+			pstmt.setString(3, board.getContent());
+			pstmt.setInt(4, board.getBoardNumber());
+			
+			value = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("read Error");
+			System.out.println("update Error");
 		} finally {
 
 			JdbcUtil.close(pstmt);

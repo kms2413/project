@@ -12,7 +12,7 @@
 
 <%
 	int check= BoardDao.getInstance().update(board);
-	out.print(check);
+//	out.print(check);
 %>
 <html>
 <head>
@@ -20,6 +20,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%if(check>0){ %>
+		<script type="text/javascript">
+			alert("수정이 완료 됬다 임마.");
+			location.href="list.jsp?pageNumber=<%=pageNumber%>";
+		</script>
+	<%}else{ %>
+		<script type="text/javascript">
+			alert("수정이 실패 됬다 임마.");
+			location.href="update.jsp";
+		</script>
+	
+	<%} %>
 
 </body>
 </html>
