@@ -34,12 +34,12 @@
 	
 	function deleteFun(boardNumber, pageNumber){
 		var url = "delete.jsp?boardNumber="+boardNumber+ "&pageNumber="+pageNumber;
-		alert(url);
+		location.href=url;
 	}
 </script>
 </head>
 <body>
-<!-- 	<%if(memberLevel!=null){ %> -->
+
 	<table border = "1" width = "510" cellpadding = "2" cellspacing = "0" align = "center">
 		<tr>
 			<td height = "20" width = "125 "align = "center">글번호</td>
@@ -71,12 +71,16 @@
 			</td>
 		</tr>
 	</table>
-<!-- 	<%}else { %>
+
+</body>
+</html>
+
+<%-- 	<%//if(memberLevel!=null){ %> -->
+<!-- 	<%//}else { %>
 		<script type="text/javascript">
 			alert("회원가입 후 게시판 읽기 가능합니다.");
 			location.href="../member/register.jsp";
 		</script>
-	<%} %> 
+	<%//} %> 
 -->
-</body>
-</html>
+ --%>

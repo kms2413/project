@@ -13,6 +13,9 @@
 </head>
 <body>
 	<form method = "post" action = "deleteOk.jsp">
+		<input type = "hidden" name = "boardNumber" value = "<%=boardNumber %>">
+		<input type = "hidden" name = "pageNumber" value = "<%=pageNumber %>">
+
 		<table border = "1" width = "510" cellpadding = "2" cellspacing = "0" align = "center">
 		
 			<tr>
@@ -20,9 +23,17 @@
 			</tr>
 			
 			<tr>
-				<td align = "center">비번을 입력하세여</td>
+				<td align = "center">
+					비번을 입력하세여 <input type = "password" name = "password"/>
+				</td>
 			</tr>
-		
+			
+			<tr>
+				<td align = "center">
+					 <input type = "submit" value = "글삭제"/>
+					 <input type = "button" value = "글목록" onclick = "location.href='list.jsp?pageNumber=<%=pageNumber%>'"/>
+				</td>
+			</tr>
 		
 		</table>
 	

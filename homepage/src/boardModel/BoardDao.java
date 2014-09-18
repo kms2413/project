@@ -238,4 +238,29 @@ public class BoardDao {
       
       return board;
    }
+   
+	public int delete(int boardNumber, String password) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int value = 0;
+
+		try {
+			String sql = "delete from board where board_number=? and password =?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNumber);
+			pstmt.setString(2, password);
+			value = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("delete Error");
+		} finally {
+
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+
+		return value;
+	}
 }
