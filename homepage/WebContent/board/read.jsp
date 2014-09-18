@@ -36,9 +36,17 @@
 		</tr>
 		
 		<tr>
-			
 			<td height = "300" width = "125 "align = "center">글내용</td>
 			<td height = "300" colspan = "3" valign ="top"><%=board.getContent() %></td>
+		</tr>
+		
+		<tr>
+			<td height = "30" align = "center" colspan = "4">
+				<input type = "button" value = "글수정" onclick=""/>
+				<input type = "button" value = "글삭제" onclick=""/>
+				<input type = "button" value = "답글" onclick=""/>
+				<input type = "button" value = "목록" onclick="location.href = 'list.jsp?pageNumber=<%=pageNumber%>'"/>
+			</td>
 		</tr>
 	</table>
 </body>
