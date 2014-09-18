@@ -40,6 +40,8 @@
 <script type="text/javascript">
 	function readFun(boardNumber, currentPage){
 		var url = "read.jsp?boardNumber="+boardNumber+"&pageNumber="+currentPage;
+		
+		location.href=url;
 	}
 </script>
 </head>
