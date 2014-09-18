@@ -186,12 +186,17 @@ public class BoardDao {
 		return value;
 	}
 	
+<<<<<<< HEAD
 	public BoardDto read(int boardNumber){
+=======
+	public BoardDto read(int boardNumber) {
+>>>>>>> 822820669166953c5a4e75d2768aca3caa8c9e97
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BoardDto board = null;
 		
+<<<<<<< HEAD
 		try{
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
@@ -207,18 +212,42 @@ public class BoardDao {
 			pstmt.setInt(1, boardNumber);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
+=======
+		try {
+			conn = ConnectionProvider.getConnection();
+			conn.setAutoCommit(false);
+			
+			String sqlUpdate="update board set read_count = read_count + 1";
+			pstmt=conn.prepareStatement(sqlUpdate);
+			pstmt.setInt(1, boardNumber);
+			pstmt.executeUpdate();
+			if (pstmt != null) pstmt.close();
+			
+			String sqlSelect = "select * from board where board_number=?";
+			pstmt = conn.prepareStatement(sqlSelect);
+			pstmt.setInt(1, boardNumber);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+>>>>>>> 822820669166953c5a4e75d2768aca3caa8c9e97
 				board = new BoardDto();
 				board.setBoardNumber(rs.getInt("board_number"));
 				board.setWriter(rs.getString("writer"));
 				board.setSubject(rs.getString("subject"));
 				board.setEmail(rs.getString("email"));
 				board.setContent(rs.getString("content"));
+<<<<<<< HEAD
 				board.setPassword(rs.getString("password"));
 				
+=======
+				
+				board.setPassword(rs.getString("password"));
+>>>>>>> 822820669166953c5a4e75d2768aca3caa8c9e97
 				board.setWriteDate(rs.getTimestamp("write_date"));
 				board.setReadCount(rs.getInt("read_count"));
 				board.setIp(rs.getString("ip"));
 				board.setGroupNumber(rs.getInt("group_number"));
+<<<<<<< HEAD
 				board.setSequenceNumber(rs.getInt("sequence_number"));
 				board.setSequenceLevel(rs.getInt("sequence_level"));
 			}
@@ -230,6 +259,15 @@ public class BoardDao {
 			System.out.println("read Error");
 			JdbcUtil.rollback(conn);
 		}finally{
+=======
+				board.setSequenceLevel(rs.getInt("sequence_levels"));
+				board.setSequenceNumber(rs.getInt("sequence_number"));
+			}
+		}catch (Exception e) {
+			System.out.println("Board Read Error");
+			e.printStackTrace();
+		} finally {
+>>>>>>> 822820669166953c5a4e75d2768aca3caa8c9e97
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 			JdbcUtil.close(conn);

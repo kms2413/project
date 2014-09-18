@@ -1,9 +1,11 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "boardModel.*" %>
     <%@ page import = "java.text.SimpleDateFormat" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
+	request.setCharacterEncoding("euc-kr");
 	int boardNumber=Integer.parseInt(request.getParameter("boardNumber"));
 	String pageNumber = request.getParameter("pageNumber");
 //	out.print("boardN:" + boardNumber + ","+ "pageNumber:" + pageNumber);
@@ -44,7 +46,7 @@
 			<td height = "30" align = "center" colspan = "4">
 				<input type = "button" value = "글수정" onclick=""/>
 				<input type = "button" value = "글삭제" onclick=""/>
-				<input type = "button" value = "답글" onclick=""/>
+				<input type = "button" value = "댓글" onclick=""/>
 				<input type = "button" value = "목록" onclick="location.href = 'list.jsp?pageNumber=<%=pageNumber%>'"/>
 			</td>
 		</tr>
