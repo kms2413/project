@@ -135,7 +135,10 @@ public class BoardDao {
             board.setSubject(rs.getString("subject"));
             board.setEmail(rs.getString("email"));
             board.setContent(rs.getString("content"));
-            board.setWriteDate(rs.getDate("write_date"));
+            board.setPassword(rs.getString("password"));
+            
+            board.setWriteDate(rs.getTimestamp("write_date"));
+            board.setReadCount(rs.getInt("read_count"));
             board.setIp(rs.getString("ip"));
             board.setGroupNumber(rs.getInt("group_number"));
             board.setSequenceNumber(rs.getInt("sequence_number"));

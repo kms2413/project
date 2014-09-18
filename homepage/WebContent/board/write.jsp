@@ -17,6 +17,11 @@
 	
 	out.print(boardNumber + groupNumber + sequenceNumber + sequenceLevel);
 	
+	String pageNumber= request.getParameter("pageNumber");
+	if(pageNumber == null){
+		pageNumber="1";
+	}
+	
 %>
 <html>
 <head>
@@ -33,6 +38,7 @@
 			<input type = "hidden" name = "groupNumber" value = "<%=groupNumber %>"/>
 			<input type = "hidden" name = "sequenceNumber" value = "<%=sequenceNumber %>"/>
 			<input type = "hidden" name = "sequenceLevel" value = "<%=sequenceLevel %>"/>
+			<input type = "hidden" name = "pageNumber" value = "<%=pageNumber %>"/>
 			<div>글쓰기</div>
 			<div style="text-align: right; color: red;">
 				<a href="list.jsp">글목록</a>

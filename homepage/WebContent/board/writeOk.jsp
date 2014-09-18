@@ -13,6 +13,8 @@
 
 	out.print(boardNumber + groupNumber + sequenceNumber + sequenceLevel);
 	
+	String pageNumber = request.getParameter("pageNumber");
+	out.print("pageNumber:" + pageNumber);
 %>
 
 <jsp:useBean id = "board" class = "boardModel.BoardDto"/>
@@ -32,12 +34,12 @@
 	<%if(check>0){ %>
 		<script type="text/javascript">
 			alert("Done");
-			location.href="list.jsp";
+			location.href="list.jsp?pageNumber="+<%=pageNumber%>;
 		</script>
 	<%}else{ %>
 		<script type="text/javascript">
 			alert("Failed");
-			location.href="list.jsp";
+			location.href="list.jsp?pageNumber="+<%=pageNumber%>;
 		</script>
 	<% }%>
 </body>
