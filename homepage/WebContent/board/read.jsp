@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "boardModel.*" %>
@@ -18,6 +17,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+	function replyFun(boardNumber, groupNumber, sequenceNumber, sequenceLevel){
+		var url ="write.jsp?boardNumber="+boardNumber+"&groupNumber"+groupNumber
+				+"&sequenceNumber"+sequenceNumber+"&sequenceLevel"+sequenceLevel;
+		//alert(url);
+		location.href=url;
+	}
+</script>
 </head>
 <body>
 	<table border = "1" width = "510" cellpadding = "2" cellspacing = "0" align = "center">
@@ -46,7 +54,7 @@
 			<td height = "30" align = "center" colspan = "4">
 				<input type = "button" value = "글수정" onclick=""/>
 				<input type = "button" value = "글삭제" onclick=""/>
-				<input type = "button" value = "댓글" onclick=""/>
+				<input type = "button" value = "댓글" onclick="replyFun('<%=board.getBoardNumber()%>','<%=board.getGroupNumber()%>','<%=board.getSequenceNumber()%>','<%=board.getSequenceLevel()%>')"/>
 				<input type = "button" value = "목록" onclick="location.href = 'list.jsp?pageNumber=<%=pageNumber%>'"/>
 			</td>
 		</tr>
