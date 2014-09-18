@@ -25,7 +25,7 @@
 	<%}else{ %>
 		<script type="text/javascript">
 			alert("Failed");
-			location.href="delete.jsp";
+			location.href="delete.jsp?history.back";
 		</script>
 	<%} %>
 

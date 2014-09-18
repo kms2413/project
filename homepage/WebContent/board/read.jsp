@@ -36,6 +36,11 @@
 		var url = "delete.jsp?boardNumber="+boardNumber+ "&pageNumber="+pageNumber;
 		location.href=url;
 	}
+
+	function updateFun(boardNumber, pageNumber){
+		var url = "update.jsp?boardNumber="+boardNumber+ "&pageNumber="+pageNumber;
+		location.href=url;
+	}
 </script>
 </head>
 <body>
@@ -64,7 +69,7 @@
 		
 		<tr>
 			<td height = "30" align = "center" colspan = "4">
-				<input type = "button" value = "글수정" onclick=""/>
+				<input type = "button" value = "글수정" onclick="updateFun(<%=board.getBoardNumber()%>, <%=pageNumber%>)"/>
 				<input type = "button" value = "글삭제" onclick="deleteFun(<%=board.getBoardNumber()%>, <%=pageNumber%>)"/>
 				<input type = "button" value = "댓글" onclick="replyFun('<%=board.getBoardNumber()%>','<%=board.getGroupNumber()%>','<%=board.getSequenceNumber()%>','<%=board.getSequenceLevel()%>','<%=pageNumber%>')"/>
 				<input type = "button" value = "목록" onclick="location.href = 'list.jsp?pageNumber=<%=pageNumber%>'"/>
