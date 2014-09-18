@@ -67,7 +67,7 @@
 			<tr>
 				<td align ="center" width = "50">번호</td>
 				<td align ="center" width = "250">제목</td>
-				<td align ="center" width = "70">작성자</td>
+				<td align ="center" width = "90">작성자</td>
 				<td align ="center" width = "110">작성일</td>
 				<td align ="center" width = "70">조회수</td>
 				<td align ="center" width = "50">IP</td>
