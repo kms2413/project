@@ -230,6 +230,10 @@ public class BoardDao {
 				board.setGroupNumber(rs.getInt("group_number"));
 				board.setSequenceNumber(rs.getInt("sequence_number"));
 				board.setSequenceLevel(rs.getInt("sequence_level"));
+				
+				board.setFileName(rs.getString("file_name"));
+				board.setPath(rs.getString("path"));
+				board.setFileSize(rs.getLong("file_size"));
 			}
 			conn.commit();
 
