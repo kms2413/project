@@ -1,0 +1,35 @@
+@CHARSET "EUC-KR";
+
+.border_doc{
+   width:600px;
+   height:490px;
+   border:solid 1px black;
+}
+.border_div{
+   width:600px;
+   height:25px;
+   border:solid 0px green;
+   margin:0px;
+}
+.border_box_left{
+   width:100px;
+   height:24px;
+   text-align:center;
+   border:solid 1px black;
+   float:left;
+   border-top-width:0px;
+   border-right-width:0px;
+   border-bottom-width:1px;
+   border-left-width:0px;
+}
+.border_box_right{
+   width:499px;
+   height:24px;
+   border:solid 1px black;
+   float:right;
+   border-top-width:0px;
+   border-right-width:0px;
+   border-bottom-width:1px;
+   border-left-width:1px;
+   text-align:left;   
+}

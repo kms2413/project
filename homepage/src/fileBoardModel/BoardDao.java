@@ -1,4 +1,4 @@
-package boardModel;
+package fileBoardModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,8 +31,8 @@ public class BoardDao {
 		try {
 			String sql = "insert into board (board_number, writer, subject, email,"
 					+ " content, password, write_date, read_count, ip, group_number,"
-					+ " sequence_number, sequence_level)"
-					+ "values(board_board_number_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+					+ " sequence_number, sequence_level,file_name, path, file_size)"
+					+ "values(board_board_number_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -48,6 +48,10 @@ public class BoardDao {
 			pstmt.setInt(9, board.getGroupNumber());
 			pstmt.setInt(10, board.getSequenceNumber());
 			pstmt.setInt(11, board.getSequenceLevel());
+			
+			pstmt.setString(12, board.getFileName());
+			pstmt.setString(13, board.getPath());
+			pstmt.setLong(14, board.getFileSize());
 
 			value = pstmt.executeUpdate();
 
@@ -63,8 +67,8 @@ public class BoardDao {
 	}
 
 	public void writeNumber(Connection conn, BoardDto board) {
-		// 占쎈쇀占쎈쳜占쎈콦(�윜諛몄굡塋딆늺由곤옙�쐡占쎄퉰, �뼨�먯삕�뜝�럥�뻹�뜝�럡�맋, �뼨�먯삕�뜝�럩�읉�뵓怨ㅼ삕), �뜝�럥堉쀧뼨�먯삕(�윜諛몄굡塋딆늺由곤옙�쐡占쎄퉰,
-		// �뼨�먯삕�뜝�럥�뻹�뜝�럡�맋, �뼨�먯삕�뜝�럩�읉�뵓怨ㅼ삕)
+		// �뙴�뫂�뱜(域밸챶竊숃린�뜇�깈, 疫뀐옙占쎈떄占쎄퐣, 疫뀐옙占쎌쟿甕곤옙), 占쎈뼗疫뀐옙(域밸챶竊숃린�뜇�깈,
+		// 疫뀐옙占쎈떄占쎄퐣, 疫뀐옙占쎌쟿甕곤옙)
 		int boardNumber = board.getBoardNumber();
 		int groupNumber = board.getGroupNumber();
 		int sequenceNumber = board.getSequenceNumber();
@@ -94,15 +98,13 @@ public class BoardDao {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 
-				// �윜諛몄굡塋딆늺由곤옙�쐡占쎄퉰 嶺뚯쉻�삕�뜝�럩�젧
+				// 域밸챶竊숃린�뜇�깈 筌욑옙占쎌젟
 				if (rs.next()) {
 					max = rs.getInt(1) + 1;
 				} else {
 					max = board.getGroupNumber();
 				}
-				groupNumber = max;
-				sequenceNumber = board.getSequenceNumber();
-				sequenceLevel = board.getSequenceLevel();
+
 			}
 
 			board.setGroupNumber(groupNumber);
