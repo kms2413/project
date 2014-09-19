@@ -306,6 +306,10 @@ public class BoardDao {
 				board.setGroupNumber(rs.getInt("group_number"));
 				board.setSequenceNumber(rs.getInt("sequence_number"));
 				board.setSequenceLevel(rs.getInt("sequence_level"));
+				
+				board.setFileName(rs.getString("file_name"));
+				board.setPath(rs.getString("path"));
+				board.setFileSize(rs.getLong("file_size"));
 			}
 
 		} catch (Exception e) {
@@ -327,15 +331,30 @@ public class BoardDao {
 		int value = 0;
 		
 		try{
-			String sql = "update board set email=?, subject=?, content=? where board_number = ?";
 			conn = ConnectionProvider.getConnection();
-			pstmt = conn.prepareStatement(sql);
+			String sql = null;
 			
-			pstmt.setString(1, board.getEmail());
-			pstmt.setString(2, board.getSubject());
-			pstmt.setString(3, board.getContent());
-			pstmt.setInt(4, board.getBoardNumber());
-			
+			if(board.getFileName()==null){
+				sql = "update board set email=?, subject=?, content=? where board_number = ?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, board.getEmail());
+				pstmt.setString(2, board.getSubject());
+				pstmt.setString(3, board.getContent());
+				pstmt.setInt(4, board.getBoardNumber());
+				
+			}else{
+				sql = "update board set email=?, subject=?, content=?, file_name=?, path=?, file_size=? where board_number = ?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, board.getEmail());
+				pstmt.setString(2, board.getSubject());
+				pstmt.setString(3, board.getContent());
+				
+				pstmt.setString(4, board.getFileName());
+				pstmt.setString(5, board.getPath());
+				pstmt.setLong(5, board.getFileSize());
+				pstmt.setInt(7, board.getBoardNumber());
+				
+			}
 			value = pstmt.executeUpdate();
 			
 		} catch (Exception e) {

@@ -41,6 +41,8 @@
 		var url = "update.jsp?boardNumber="+boardNumber+ "&pageNumber="+pageNumber;
 		location.href=url;
 	}
+	
+	
 </script>
 </head>
 <body>
@@ -71,6 +73,14 @@
 			<td height = "300" width = "125 "align = "center">글내용</td>
 			<td height = "300" colspan = "3" valign ="top"><%=board.getContent() %></td>
 		</tr>
+		
+		<%if(board.getFileName()!= "" && board.getFileName()!=null){ %>
+			<tr>
+				<td height = "20" width = "125 "align = "center">파일명</td>
+				<td height = "20" colspan="3"><a href = "javascript:location.href='download.jsp?boardNumber=<%=boardNumber%>'"><%=board.getFileName() %></a>
+				</td>
+			</tr>
+		<%}%>
 		
 		<tr>
 			<td height = "30" align = "center" colspan = "4">
