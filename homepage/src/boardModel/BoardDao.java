@@ -63,8 +63,8 @@ public class BoardDao {
 	}
 
 	public void writeNumber(Connection conn, BoardDto board) {
-		// �뙴�뫂�뱜(域밸챶竊숃린�뜇�깈, 疫뀐옙占쎈떄占쎄퐣, 疫뀐옙占쎌쟿甕곤옙), 占쎈뼗疫뀐옙(域밸챶竊숃린�뜇�깈,
-		// 疫뀐옙占쎈떄占쎄퐣, 疫뀐옙占쎌쟿甕곤옙)
+		// 占쎈쇀占쎈쳜占쎈콦(�윜諛몄굡塋딆늺由곤옙�쐡占쎄퉰, �뼨�먯삕�뜝�럥�뻹�뜝�럡�맋, �뼨�먯삕�뜝�럩�읉�뵓怨ㅼ삕), �뜝�럥堉쀧뼨�먯삕(�윜諛몄굡塋딆늺由곤옙�쐡占쎄퉰,
+		// �뼨�먯삕�뜝�럥�뻹�뜝�럡�맋, �뼨�먯삕�뜝�럩�읉�뵓怨ㅼ삕)
 		int boardNumber = board.getBoardNumber();
 		int groupNumber = board.getGroupNumber();
 		int sequenceNumber = board.getSequenceNumber();
@@ -94,13 +94,15 @@ public class BoardDao {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 
-				// 域밸챶竊숃린�뜇�깈 筌욑옙占쎌젟
+				// �윜諛몄굡塋딆늺由곤옙�쐡占쎄퉰 嶺뚯쉻�삕�뜝�럩�젧
 				if (rs.next()) {
 					max = rs.getInt(1) + 1;
 				} else {
 					max = board.getGroupNumber();
 				}
-
+				groupNumber = max;
+				sequenceNumber = board.getSequenceNumber();
+				sequenceLevel = board.getSequenceLevel();
 			}
 
 			board.setGroupNumber(groupNumber);

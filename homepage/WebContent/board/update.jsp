@@ -26,7 +26,7 @@
 			<div class="border_div">
 				<div class="border_box_left" style="border-top-width: 1px;">작성자</div>
 				<div class="border_box_right" style="border-top-width: 1px;">
-					<input type="text" name="writer" value = "<%=board.getWriter()%>" disabled = "disabled"/>
+					<input type="text" name="writer" value = "<%=board.getWriter()%>" disabled="disabled" />
 				</div>
 			</div>
 
