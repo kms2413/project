@@ -53,7 +53,6 @@ public class BoardDao {
 			pstmt.setString(13, board.getPath());
 			pstmt.setLong(14, board.getFileSize());
 
-			System.out.println(board.getFileSize());
 			value = pstmt.executeUpdate();
 
 		} catch (Exception e) {

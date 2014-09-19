@@ -11,6 +11,9 @@ create table board(
 	group_number number(2) not null,
 	sequence_number number(2) not null,
 	sequence_level number(2) not null,
+	file_name varchar2(100);
+	path varchar2(100);
+	file_size number(8)
 	primary key (board_number)
 );
 
