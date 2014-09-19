@@ -1,25 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page import="fileBoardModel.BoardDto"%>
+<%@page import="org.apache.commons.io.FilenameUtils"%>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
+<%@page import="org.apache.commons.fileupload.FileItem"%>
 
-<%@ page import="fileBoardModel.*"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="java.io.File"%>
-<%@ page import="java.io.FileOutputStream"%>
-<%@ page import="java.io.BufferedInputStream"%>
-<%@ page import="java.io.BufferedOutputStream"%>
-
-<%@ page import="org.apache.commons.fileupload.FileItem"%>
-<%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
-<%@ page
-	import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
-<%@ page import="org.apache.commons.io.FilenameUtils"%>
-
+<%@page import="java.io.File"%>
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.BufferedInputStream"%>
+<%@page import="java.io.BufferedOutputStream"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="fileBoardModel.BoardDao"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	//Í∞ùÏ≤¥ÎÑòÏñ¥Ïò§Î©¥ --> ÏóÖÎ°úÎìúÌï† ÌÅ¥ÎûòÏä§(Î≥¥Í¥ÄÌï† ÌÅ¥ÎûòÏä§) --> List --> ÌååÏùº, Text --> Dto
+	//∞¥√º≥—æÓø¿∏È 
+	//æ˜∑ŒµÂ«“ ≈¨∑°Ω∫(∫∏∞¸«“ ≈¨∑°Ω∫) --> List --> ∆ƒ¿œ, Text --> Dto
+
 	DiskFileItemFactory factory = new DiskFileItemFactory();
 	ServletFileUpload upload = new ServletFileUpload(factory);
+	
 	List<FileItem> list = upload.parseRequest(request);
 	Iterator<FileItem> iter = list.iterator();
 
@@ -28,21 +29,23 @@
 		FileItem item = iter.next();
 		if (item.isFormField()) {
 			if (item.getFieldName().equals("boardNumber")) {
-				board.setBoardNumber(Integer.parseInt(item.getString()));
+				board.setBoardNumber(Integer.parseInt(item
+						.getString("euc-kr")));
 			}
 
 			if (item.getFieldName().equals("groupNumber")) {
-				board.setGroupNumber(Integer.parseInt(item.getString()));
+				board.setGroupNumber(Integer.parseInt(item
+						.getString("euc-kr")));
 			}
 
 			if (item.getFieldName().equals("sequenceNumber")) {
 				board.setSequenceNumber(Integer.parseInt(item
-						.getString()));
+						.getString("euc-kr")));
 			}
 
 			if (item.getFieldName().equals("sequenceLevel")) {
 				board.setSequenceLevel(Integer.parseInt(item
-						.getString()));
+						.getString("euc-kr")));
 			}
 
 			if (item.getFieldName().equals("writer")) {
@@ -54,7 +57,7 @@
 			}
 
 			if (item.getFieldName().equals("email")) {
-				board.setEmail(item.getString());
+				board.setEmail(item.getString("euc-kr"));
 			}
 
 			if (item.getFieldName().equals("content")) {
@@ -65,61 +68,68 @@
 				board.setPassword(item.getString("euc-kr"));
 			}
 
+		} else {
 			if (item.getFieldName().equals("file")) {
-				//ÌååÏùºÎ™Ö, ÏÇ¨Ïù¥Ï¶à
+				//∆ƒ¿œ∏Ì, ªÁ¿Ã¡Ó
 				String fileName = FilenameUtils.getName(item.getName());
 				long size = item.getSize();
-				String dir = "/Users/Min/Dropbox/JSP/workspace/homepage/WebContent/pds";
+				String dir = "C:\\JSP\\workspace\\homePageMy\\WebContent\\pds";
 
 				if (fileName == null || fileName.equals(""))
 					continue;
-
+				
 				File file = new File(dir, fileName);
 				BufferedInputStream fis = null;
 				BufferedOutputStream fos = null;
-
-				try {
+				
+				try{
 					fis = new BufferedInputStream(item.getInputStream());
-					fos = new BufferedOutputStream(
-							new FileOutputStream(file));
-
-					byte[] by = new byte[(int) size];
+					fos = new BufferedOutputStream(new FileOutputStream(file));
+					
+					byte[] by = new byte[(int)size];
 					int count = fis.read(by);
-					for (int i = 0; i < count; i++) {
+					for(int i = 0; i < count; i++){
 						fos.write(by[i]);
 					}
-				} catch (Exception e) {
-					System.out.print("File Upload Error");
+				}catch(Exception e){
+					System.out.println("File Upload Error");
 					e.printStackTrace();
-				} finally {
+				}finally{
 					if(fis != null) fis.close();
 					if(fos != null) fos.close();
 				}
 				
 				board.setFileName(fileName);
-				board.setPath(file.getAbsolutePath()); //Í≤ΩÎ°úÎ™Ö + ÌååÏùºÎ™Ö
+				board.setPath(file.getAbsolutePath());
 				board.setFileSize(size);
 			}
-
-		} else {
-
 		}
 	}
 	
 	board.setIp(request.getRemoteAddr());
 	int check = BoardDao.getInstance().insert(board);
-	out.print("Check:" + check);
-	
+	out.print(check);
 %>
-
-
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Í∏ÄÏì∞Í∏∞</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
 </head>
 <body>
+	<%-- 
 
+	<%if(check>0){ %>
+		<script type="text/javascript">
+			alert("±€æ≤±‚∞° øœ∑·µ«æ˙Ω¿¥œ¥Ÿ");
+			location.href="list.jsp?pageNumber=" + <%=pageNumber%>;
+		</script>
+	<%}else{ %>
+		<script type="text/javascript">
+			alert("±€æ≤±‚∞° ¡§ªÛ √≥∏Æ µ«¡ˆ æ æ“Ω¿¥œ¥Ÿ.");
+			location.href="list.jsp?pageNumber=" + <%=pageNumber%>;
+		</script>
+	<%} %>
+
+--%>
 </body>
 </html>
