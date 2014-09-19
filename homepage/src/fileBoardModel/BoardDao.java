@@ -29,10 +29,10 @@ public class BoardDao {
 		// System.out.println(board.getGroupNumber() + "," +
 		// board.getSequenceNumber() + "," + board.getSequenceLevel());
 		try {
-			String sql = "insert into board (board_number, writer, subject, email,"
-					+ " content, password, write_date, read_count, ip, group_number,"
-					+ " sequence_number, sequence_level,file_name, path, file_size)"
-					+ "values(board_board_number_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql="insert into board(board_number, writer, subject, email,"
+		               + " content, password, write_date, read_count, ip, group_number,"
+		               + " sequence_number, sequence_level, file_name, path, file_size)"
+		               + "values(board_board_number_seq.nextval, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -53,6 +53,7 @@ public class BoardDao {
 			pstmt.setString(13, board.getPath());
 			pstmt.setLong(14, board.getFileSize());
 
+			System.out.println(board.getFileSize());
 			value = pstmt.executeUpdate();
 
 		} catch (Exception e) {
