@@ -1,4 +1,4 @@
-package boardModel;
+package fileBoardModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,8 +31,8 @@ public class BoardDao {
 		try {
 			String sql = "insert into board (board_number, writer, subject, email,"
 					+ " content, password, write_date, read_count, ip, group_number,"
-					+ " sequence_number, sequence_level)"
-					+ "values(board_board_number_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+					+ " sequence_number, sequence_level,file_name, path, file_size)"
+					+ "values(board_board_number_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -48,6 +48,10 @@ public class BoardDao {
 			pstmt.setInt(9, board.getGroupNumber());
 			pstmt.setInt(10, board.getSequenceNumber());
 			pstmt.setInt(11, board.getSequenceLevel());
+			
+			pstmt.setString(12, board.getFileName());
+			pstmt.setString(13, board.getPath());
+			pstmt.setLong(14, board.getFileSize());
 
 			value = pstmt.executeUpdate();
 
