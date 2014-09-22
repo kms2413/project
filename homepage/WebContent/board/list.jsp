@@ -47,6 +47,8 @@
 
 </head>
 <body>
+ 	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
 	<center>글목록</center>
 	<table width = "530" align = "center">
 		<tr>
@@ -125,6 +127,6 @@
 		
 	</center>
 	
-	
+	<jsp:include page="/template/bottom.jsp"></jsp:include>
 </body>
 </html>

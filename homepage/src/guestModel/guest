@@ -22,6 +22,9 @@ increment by 1;
 
 select * from member;
 
+select * from board;
+
+
 create table testing(
 	num number(5),
 	name varchar2(20)

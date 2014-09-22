@@ -12,6 +12,8 @@
 <title>게시판 삭제</title>
 </head>
 <body>
+ 	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
 	<form method = "post" action = "deleteOk.jsp">
 		<input type = "hidden" name = "boardNumber" value = "<%=boardNumber %>">
 		<input type = "hidden" name = "pageNumber" value = "<%=pageNumber %>">
@@ -38,5 +40,6 @@
 		</table>
 	
 	</form>
+	<jsp:include page="/template/bottom.jsp"></jsp:include>
 </body>
 </html>

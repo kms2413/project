@@ -22,6 +22,7 @@ alter table board add file_name varchar2(100);
 alter table board add path varchar2(200);
 alter table board add file_size number(8);
 
+alter table board modify(path varchar2(200));
 
 select * from board;
 

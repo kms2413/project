@@ -5,15 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-	<jsp:include page="/template/top.jsp"></jsp:include>
-	<jsp:include page="/template/left.jsp"></jsp:include>
-	<br/><br/>
-	
-	<a href = "">회원목록</a><br/>
-	<a href = "">회원삭제</a><br/>
-	<jsp:include page="/template/bottom.jsp"></jsp:include>
+	<jsp:include page="top.jsp"></jsp:include>
+	<jsp:include page="left.jsp"></jsp:include>
+	<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

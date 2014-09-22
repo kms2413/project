@@ -31,6 +31,8 @@
 <script type="text/javascript" language="javascript" src="script.js"></script>
 </head>
 <body>
+   	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
 	<div align="center">
 		<form class="border_doc" action="writeOk.jsp" method="post"
 			onsubmit="return writeForm(this)" enctype = "multipart/form-data">
@@ -94,5 +96,6 @@
 			</div>
 		</form>
 	</div>
+	   	<jsp:include page="/template/bottom.jsp"></jsp:include>
 </body>
 </html>

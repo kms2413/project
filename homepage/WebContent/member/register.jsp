@@ -9,7 +9,8 @@
       <link rel="stylesheet" type="text/css" href="style.css"/>
    </head>
    <body>
-   	<jsp:include page = "index.jsp"/>
+   	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
       <div align="center">
          <div>회원가입(*필수입력사항입니다.)</div>
          <form class=border_doc name="memberForm" action="registerOk.jsp" method="post" onsubmit="return registerForm(this)">
@@ -108,5 +109,6 @@
             </div>                        
          </form>
       </div>
+	<jsp:include page="/template/bottom.jsp"></jsp:include>
    </body>
 </html>

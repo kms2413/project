@@ -104,7 +104,7 @@ public class BoardDao {
 				} else {
 					max = board.getGroupNumber();
 				}
-
+				groupNumber=max;
 			}
 
 			board.setGroupNumber(groupNumber);
@@ -198,6 +198,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BoardDto board = null;
+		
 
 		try {
 			conn = ConnectionProvider.getConnection();
@@ -351,7 +352,7 @@ public class BoardDao {
 				
 				pstmt.setString(4, board.getFileName());
 				pstmt.setString(5, board.getPath());
-				pstmt.setLong(5, board.getFileSize());
+				pstmt.setLong(6, board.getFileSize());
 				pstmt.setInt(7, board.getBoardNumber());
 				
 			}

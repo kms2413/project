@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import = "boardModel.*" %>
-    <%@ page import = "java.text.SimpleDateFormat" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="boardModel.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
@@ -44,44 +44,49 @@
 </script>
 </head>
 <body>
+	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
+	<table border="1" width="510" cellpadding="2" cellspacing="0"
+		align="center">
+		<tr>
+			<td height="20" width="125 " align="center">글번호</td>
+			<td height="20" width="125 " align="center"><%=board.getBoardNumber() %></td>
 
-	<table border = "1" width = "510" cellpadding = "2" cellspacing = "0" align = "center">
-		<tr>
-			<td height = "20" width = "125 "align = "center">글번호</td>
-			<td height = "20" width = "125 "align = "center"><%=board.getBoardNumber() %></td>
-			
-			<td height = "20" width = "125 "align = "center">조회수</td>
-			<td height = "20" width = "125 "align = "center"><%=board.getReadCount() %></td>
+			<td height="20" width="125 " align="center">조회수</td>
+			<td height="20" width="125 " align="center"><%=board.getReadCount() %></td>
 		</tr>
-	
+
 		<tr>
-			<td height = "20" width = "125 "align = "center">작성자</td>
-			<td height = "20" width = "125 "align = "center"><%=board.getWriter() %></td>
-			
-			<td height = "20" width = "125 "align = "center">작성일</td>
-			<td height = "20" width = "125 "align = "center"><%=sdf.format(board.getWriteDate()) %></td>
+			<td height="20" width="125 " align="center">작성자</td>
+			<td height="20" width="125 " align="center"><%=board.getWriter() %></td>
+
+			<td height="20" width="125 " align="center">작성일</td>
+			<td height="20" width="125 " align="center"><%=sdf.format(board.getWriteDate()) %></td>
 		</tr>
-		
+
 		<tr>
-			<td height = "20" width = "125 "align = "center">이메일</td>
-			<td height = "20" colspan="3"><%=board.getEmail() %></td>
+			<td height="20" width="125 " align="center">이메일</td>
+			<td height="20" colspan="3"><%=board.getEmail() %></td>
 		</tr>
-		
+
 		<tr>
-			<td height = "300" width = "125 "align = "center">글내용</td>
-			<td height = "300" colspan = "3" valign ="top"><%=board.getContent() %></td>
+			<td height="300" width="125 " align="center">글내용</td>
+			<td height="300" colspan="3" valign="top"><%=board.getContent() %></td>
 		</tr>
-		
+
 		<tr>
-			<td height = "30" align = "center" colspan = "4">
-				<input type = "button" value = "글수정" onclick="updateFun(<%=board.getBoardNumber()%>, <%=pageNumber%>)"/>
-				<input type = "button" value = "글삭제" onclick="deleteFun(<%=board.getBoardNumber()%>, <%=pageNumber%>)"/>
-				<input type = "button" value = "댓글" onclick="replyFun('<%=board.getBoardNumber()%>','<%=board.getGroupNumber()%>','<%=board.getSequenceNumber()%>','<%=board.getSequenceLevel()%>','<%=pageNumber%>')"/>
-				<input type = "button" value = "목록" onclick="location.href = 'list.jsp?pageNumber=<%=pageNumber%>'"/>
-			</td>
+			<td height="30" align="center" colspan="4"><input type="button"
+				value="글수정"
+				onclick="updateFun(<%=board.getBoardNumber()%>, <%=pageNumber%>)" />
+				<input type="button" value="글삭제"
+				onclick="deleteFun(<%=board.getBoardNumber()%>, <%=pageNumber%>)" />
+				<input type="button" value="댓글"
+				onclick="replyFun('<%=board.getBoardNumber()%>','<%=board.getGroupNumber()%>','<%=board.getSequenceNumber()%>','<%=board.getSequenceLevel()%>','<%=pageNumber%>')" />
+				<input type="button" value="목록"
+				onclick="location.href = 'list.jsp?pageNumber=<%=pageNumber%>'" /></td>
 		</tr>
 	</table>
-
+	<jsp:include page="/template/bottom.jsp"></jsp:include>
 </body>
 </html>
 

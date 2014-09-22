@@ -31,14 +31,17 @@
 <script type="text/javascript" language="javascript" src="script.js"></script>
 </head>
 <body>
+	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
 	<div align="center">
 		<form class="border_doc" action="writeOk.jsp" method="post"
 			onsubmit="return writeForm(this)">
-			<input type = "hidden" name = "boardNumber" value = "<%=boardNumber %>"/>
-			<input type = "hidden" name = "groupNumber" value = "<%=groupNumber %>"/>
-			<input type = "hidden" name = "sequenceNumber" value = "<%=sequenceNumber %>"/>
-			<input type = "hidden" name = "sequenceLevel" value = "<%=sequenceLevel %>"/>
-			<input type = "hidden" name = "pageNumber" value = "<%=pageNumber %>"/>
+			<input type="hidden" name="boardNumber" value="<%=boardNumber %>" />
+			<input type="hidden" name="groupNumber" value="<%=groupNumber %>" />
+			<input type="hidden" name="sequenceNumber"
+				value="<%=sequenceNumber %>" /> <input type="hidden"
+				name="sequenceLevel" value="<%=sequenceLevel %>" /> <input
+				type="hidden" name="pageNumber" value="<%=pageNumber %>" />
 			<div>글쓰기</div>
 			<div style="text-align: right; color: red;">
 				<a href="list.jsp">글목록</a>
@@ -80,10 +83,11 @@
 
 			<div class="border_box">
 				<span><input type="submit" value="글쓰기"></span> <span><input
-					type="reset" value="다시작성"></span> 
-					<span><input type="button" value="목록보기" onclick = "location.href='list.jsp'"/></span>
+					type="reset" value="다시작성"></span> <span><input
+					type="button" value="목록보기" onclick="location.href='list.jsp'" /></span>
 			</div>
 		</form>
 	</div>
+	<jsp:include page="/template/bottom.jsp"></jsp:include>
 </body>
 </html>

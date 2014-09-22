@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
+	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
 		<jsp:include page = "index.jsp"/>
 	<% if(id !=null){ %>
 		<div align = "center">
@@ -22,5 +24,6 @@
 			Guest님 하이
 		</div>
 	<%} %>
+	<jsp:include page="/template/bottom.jsp"></jsp:include>
 </body>
 </html>

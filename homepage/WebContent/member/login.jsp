@@ -8,7 +8,8 @@
      <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-	<jsp:include page = "index.jsp"/>
+	<jsp:include page="/template/top.jsp"></jsp:include>
+	<jsp:include page="/template/left.jsp"></jsp:include>
 
 	<form action = "loginOk.jsp" method = "post">
 		<table border = "1" align = "center" cellpadding ="2" cellspacing ="0">
@@ -30,5 +31,6 @@
 
 		</table>
 	</form>
+	<jsp:include page="/template/bottom.jsp"></jsp:include>
 </body>
 </html>
